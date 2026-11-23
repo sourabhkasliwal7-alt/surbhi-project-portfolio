@@ -4,44 +4,44 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Core palette: crisp white bg, near-black text, subtle slate accents */
-  --background: oklch(0.985 0 0);          /* #fafafa soft off-white */
-  --foreground: oklch(0.13 0 0);           /* near-black */
-  --card: oklch(1 0 0);                    /* pure white cards */
-  --card-foreground: oklch(0.13 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.13 0 0);
-  --primary: oklch(0.18 0 0);              /* dark ink primary */
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.96 0.005 250);      /* very faint blue-grey */
-  --secondary-foreground: oklch(0.18 0 0);
-  --muted: oklch(0.95 0 0);
-  --muted-foreground: oklch(0.52 0 0);
-  --accent: oklch(0.96 0 0);
-  --accent-foreground: oklch(0.18 0 0);
+  /* Warm editorial palette: ivory paper, ink text, forest-green accent */
+  --background: oklch(0.966 0.03 160);
+  --foreground: oklch(0.21 0.02 60);
+  --card: oklch(0.992 0.006 85);
+  --card-foreground: oklch(0.21 0.02 60);
+  --popover: oklch(0.992 0.006 85);
+  --popover-foreground: oklch(0.21 0.02 60);
+  --primary: oklch(0.34 0.07 160);
+  --primary-foreground: oklch(0.975 0.012 85);
+  --secondary: oklch(0.94 0.016 85);
+  --secondary-foreground: oklch(0.21 0.02 60);
+  --muted: oklch(0.94 0.016 85);
+  --muted-foreground: oklch(0.5 0.02 70);
+  --accent: oklch(0.94 0.016 85);
+  --accent-foreground: oklch(0.21 0.02 60);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.004 250);          /* soft blue-grey border */
-  --input: oklch(0.9 0.004 250);
-  --ring: oklch(0.65 0 0);
-  --badge-bg: oklch(0.94 0.006 250);       /* tech badge background */
-  --badge-text: oklch(0.32 0.01 250);      /* tech badge text */
-  --hero-badge-bg: oklch(0.18 0 0);        /* hero "Selected Work" badge */
-  --hero-badge-text: oklch(0.985 0 0);
+  --border: oklch(0.88 0.014 80);
+  --input: oklch(0.88 0.014 80);
+  --ring: oklch(0.55 0.05 160);
+  --badge-bg: oklch(0.925 0.03 150);
+  --badge-text: oklch(0.33 0.06 158);
+  --hero-badge-bg: oklch(0.34 0.07 160);
+  --hero-badge-text: oklch(0.975 0.012 85);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 1rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.13 0 0);
-  --sidebar-primary: oklch(0.18 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.96 0 0);
-  --sidebar-accent-foreground: oklch(0.18 0 0);
-  --sidebar-border: oklch(0.9 0.004 250);
-  --sidebar-ring: oklch(0.65 0 0);
+  --sidebar: oklch(0.968 0.014 85);
+  --sidebar-foreground: oklch(0.21 0.02 60);
+  --sidebar-primary: oklch(0.34 0.07 160);
+  --sidebar-primary-foreground: oklch(0.975 0.012 85);
+  --sidebar-accent: oklch(0.94 0.016 85);
+  --sidebar-accent-foreground: oklch(0.21 0.02 60);
+  --sidebar-border: oklch(0.88 0.014 80);
+  --sidebar-ring: oklch(0.55 0.05 160);
 }
 
 .dark {
@@ -80,7 +80,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -126,6 +127,17 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(48rem 26rem at 88% -6%, oklch(0.86 0.09 175 / 0.55), transparent 62%),
+      radial-gradient(44rem 26rem at 4% 8%, oklch(0.88 0.08 85 / 0.55), transparent 62%),
+      radial-gradient(40rem 30rem at 50% 105%, oklch(0.88 0.07 230 / 0.45), transparent 65%),
+      linear-gradient(160deg, oklch(0.965 0.03 190) 0%, oklch(0.968 0.03 150) 45%, oklch(0.97 0.035 90) 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
   }
   
   /* Subtle custom scrollbar for description containers */
